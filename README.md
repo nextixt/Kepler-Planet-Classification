@@ -18,7 +18,7 @@ The model's predictions are 88% accurate, which is very high for my rather simpl
 <img width="800" height="509" alt="Figure_1" src="https://github.com/user-attachments/assets/eec65138-631b-4f8e-86b2-8ccae67b06b2" />
 _________________________________________________________________________________________________
 
-# I hope my algorithm will be using by scientists and from all companies of the world!
+# I hope my algorithm will be using by scientists and amateur astronomers!
 
 
 As now, this project completely finished, because I've focused on more impornant task then that.

@@ -12,7 +12,7 @@ from xgboost import XGBClassifier
 import numpy as np
 import joblib
 
-df = pd.read_csv('C:\\Pavel\\Code\\Datasets\\cumulative.csv')
+df = pd.read_csv('cumulative.csv')
 
 # defining num columns and categorial columns
 num_cols = ['koi_score', 'koi_period', 'koi_depth', 'koi_teq', 'koi_prad', 'koi_steff', 'koi_srad', 'koi_impact']

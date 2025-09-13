@@ -18,7 +18,6 @@ The model's predictions are 88% accurate, which is very high for my rather simpl
 <img width="800" height="509" alt="Figure_1" src="https://github.com/user-attachments/assets/eec65138-631b-4f8e-86b2-8ccae67b06b2" />
 _________________________________________________________________________________________________
 
-# I hope my algorithm will be using by scientists and amateur astronomers!
 
 # BIG UPDATES
 
@@ -26,3 +25,7 @@ ________________________________________________________________________________
 # Example:
           Input: pred = [0.8, 57, 1.40E+04,500,2.7,5200,0.85,0.142,'CANDIDATE']
           Output: Predicted class: CONFIRMED
+_________________________________________________________________________________________________
+
+
+# I hope my algorithm will be using by scientists and amateur astronomers!

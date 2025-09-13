@@ -1,0 +1,26 @@
+import joblib
+import pandas as pd
+
+# loading models
+kepler_pipeline = joblib.load('kepler_pipeline.pkl')
+le = joblib.load('label_encoder.pkl')
+
+# columns names
+num_cols = ['koi_score', 'koi_period', 'koi_depth', 'koi_teq', 'koi_prad', 
+                'koi_steff', 'koi_srad', 'koi_impact']
+cat_cols = ['koi_pdisposition']
+
+def predict(features):
+    
+    """Predicts a class for new data
+       features: list of values ​​in order [koi_score, koi_period, ..., koi_pdisposition]"""
+    
+    X = pd.DataFrame([features], columns = num_cols + cat_cols)
+    predict_value = kepler_pipeline.predict(X)
+    return predict_value[0]
+
+pred = [0.8, 57, 1.40E+04,500,2.7,5200,0.85,0.142,'CANDIDATE']
+                    
+result = predict(pred)
+predicted_class_name = le.inverse_transform([result])[0]
+print(f'Predicted class: {predicted_class_name}')

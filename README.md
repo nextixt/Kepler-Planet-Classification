@@ -20,6 +20,9 @@ ________________________________________________________________________________
 
 # I hope my algorithm will be using by scientists and amateur astronomers!
 
+# BIG UPDATES
 
-As now, this project completely finished, because I've focused on more impornant task then that.
-
+- Now model is completely ready to use, if you are scientist, you can just download kepler_pipeline.pkl and label_encoder.pkl, copy code from file predict.py and making predictions!
+# Example:
+          Input: pred = [0.8, 57, 1.40E+04,500,2.7,5200,0.85,0.142,'CANDIDATE']
+          Output: Predicted class: CONFIRMED

@@ -9,10 +9,10 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
-import matplotlib.pyplot as plt
-import shap
+import numpy as np
+import joblib
 
-df = pd.read_csv('cumulative.csv')
+df = pd.read_csv('C:\\Pavel\\Code\\Datasets\\cumulative.csv')
 
 # defining num columns and categorial columns
 num_cols = ['koi_score', 'koi_period', 'koi_depth', 'koi_teq', 'koi_prad', 'koi_steff', 'koi_srad', 'koi_impact']
@@ -54,25 +54,8 @@ prediction = kepler_pipeline.predict(X_test)
 accuracy = accuracy_score(y_test, prediction)
 report = classification_report(y_test, prediction)
 
-# Class matching for y
-print("Class matching for y:")
-for i, class_name in enumerate(le.classes_):
-    print(f"{i} -> {class_name}")
+# dump model
+joblib.dump(kepler_pipeline, 'kepler_pipeline.pkl')
+joblib.dump(le, 'label_encoder.pkl')
 
-# match for koi_pdisposition in X
-cat_transformer.fit(X_train[cat_cols]) 
-encoder = cat_transformer.named_steps['encoder']
-print("Match for koi_pdisposition in X:")
-for i, category in enumerate(encoder.categories_[0]):
-    print(f"{i} -> {category}")
-
-# printing report
-print(f'Accuracy after learning: {accuracy}\n Classification report: {report}')
-
-# shap visualization
-X_train_processed = kepler_pipeline.named_steps['transformer'].transform(X_train)
-model_for_shap = kepler_pipeline.named_steps['model']
-explainer = shap.TreeExplainer(model_for_shap)
-shap_values = explainer.shap_values(X_train_processed)
-shap.summary_plot(shap_values, X_train_processed, feature_names=num_cols + cat_cols, plot_type="bar")
-plt.show()
+print(f'Accuracy: {accuracy} \n Classification report: {report}')
